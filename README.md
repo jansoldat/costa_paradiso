@@ -1,6 +1,5 @@
-# Welcome to Remix!
-
-- [Remix Docs](https://remix.run/docs)
+# Costa paradiso website
+Directus, remixJs and cloudinary. Deploy on Vercel.
 
 ## Deployment
 

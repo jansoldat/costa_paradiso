@@ -3,7 +3,8 @@
   "sideEffects": false,
   "scripts": {
     "build": "remix build",
-    "dev": "remix dev"
+    "dev": "remix dev",
+    "icons": "npx @svgr/cli --out-dir app/components/icons -- app/icons"
   },
   "dependencies": {
     "@directus/sdk": "^10.3.1",
@@ -11,14 +12,27 @@
     "@remix-run/react": "^1.11.1",
     "@remix-run/vercel": "^1.11.1",
     "@vercel/node": "^2.6.2",
+    "classnames": "^2.3.2",
     "dotenv": "^16.0.3",
+    "gsap": "^3.11.4",
+    "nodemailer": "^6.9.1",
+    "nodemailer-sendinblue-transport": "^2.0.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-lazy-load": "^4.0.1",
+    "react-scroll": "^1.8.9",
+    "supports-webp": "^3.0.0",
+    "yet-another-react-lightbox": "^2.2.7",
+    "zod": "^3.20.6"
   },
   "devDependencies": {
     "@remix-run/dev": "^1.11.1",
     "@remix-run/eslint-config": "^1.11.1",
     "@remix-run/serve": "^1.11.1",
+    "@svgr/cli": "^6.5.1",
+    "@svgr/plugin-jsx": "^6.5.1",
+    "@svgr/plugin-prettier": "^6.5.1",
+    "@svgr/plugin-svgo": "^6.5.1",
     "eslint": "^8.27.0"
   },
   "engines": {

@@ -53,7 +53,7 @@ const Gallery = ({ images }) => {
         open={index >= 0}
         index={index}
         close={() => setIndex(-1)}
-        slides={images}
+        slides={galleryImages}
       />
     </div>
   )

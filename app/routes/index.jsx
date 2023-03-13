@@ -8,7 +8,6 @@ import ContactForm from './contactForm';
 import { Instagram } from '~/components/icons';
 import { animateScroll, Link } from 'react-scroll';
 
-
 export const translateFilter = (code) => ({
   translations:
   {
@@ -95,7 +94,6 @@ export default function Index() {
       <Section translations={[{ heading: contactForm.data.translations[0].title }]} kind="dark" isLast className="contact">
         <ContactForm className="grid__form" {...contactForm.data} />
       </Section>
-
 
       <footer className="column">
         <button className="footer__link" onClick={animateScroll.scrollToTop}>

@@ -1,12 +1,13 @@
 import { Directus } from '@directus/sdk';
 import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { animateScroll } from 'react-scroll';
 import { BlockBuilder } from '~/components/BlockBuilder';
 import { Section } from '~/components/Section';
 import Hero from '~/components/Hero';
-import ContactForm from './contactForm';
+import { Map } from '~/components/Map';
 import { Instagram } from '~/components/icons';
-import { animateScroll, Link } from 'react-scroll';
+import ContactForm from './contactForm';
 
 export const translateFilter = (code) => ({
   translations:
@@ -94,6 +95,8 @@ export default function Index() {
       <Section translations={[{ heading: contactForm.data.translations[0].title }]} kind="dark" isLast className="contact">
         <ContactForm className="grid__form" {...contactForm.data} />
       </Section>
+      <Map />
+
 
       <footer className="column">
         <button className="footer__link" onClick={animateScroll.scrollToTop}>

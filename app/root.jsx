@@ -54,7 +54,8 @@ export const loader = async () => {
 
   return json({
     ENV: {
-      apiUrl: process.env.API_URL
+      apiUrl: process.env.API_URL,
+      googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
     },
   })
 }
@@ -79,7 +80,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <RootContext.Provider value={{ apiUrl: ENV.apiUrl, supportsWebP }}>
+        <RootContext.Provider value={{ apiUrl: ENV.apiUrl, googleMapsApiKey: ENV.googleMapsApiKey, supportsWebP }}>
           <Outlet />
         </RootContext.Provider>
         <ScrollRestoration />

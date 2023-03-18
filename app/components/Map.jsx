@@ -29,7 +29,7 @@ const INFOBOX_TRANSLATION = {
   }
 }
 
-export const Map = ({ languages_code, apiKey }) => {
+export const Map = ({ languages_code }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { googleMapsApiKey } = useRootContext()
 

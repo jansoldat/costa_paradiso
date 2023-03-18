@@ -95,7 +95,7 @@ export default function Index() {
       <Section translations={[{ heading: contactForm.data.translations[0].title }]} kind="dark" isLast className="contact">
         <ContactForm className="grid__form" {...contactForm.data} />
       </Section>
-      <Map />
+      <Map languages_code={contactForm.data.translations[0].languages_code} />
 
 
       <footer className="column">

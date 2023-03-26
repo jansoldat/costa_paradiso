@@ -66,16 +66,19 @@ const META_TRANSLATIONS = {
   "en-US": {
     title: "Accommodation in Sardinia | Apartment in Costa Paradiso region",
     description: "Luxury apartment for rent in Sardinia in the Costa Paradiso area. Beautiful beaches, great accessibility and nice price.",
+    'og:title': "Luxury apartment for rent in Sardinia.",
     "og:description": "Book a luxury apartment in Sardinia in Costa Paradiso. Discover a hidden gem in the heart of the Mediterranean or Sardinia."
   },
   "it-IT": {
     title: "Alloggio in Sardegna | Appartamento in zona di Costa Paradiso",
     description: "Appartamento di lusso in affitto in Sardegna nella zona di Costa Paradiso. Spiagge bellissime, grande accessibilità e prezzo conveniente.",
+    'og:title': "Appartamento di lusso in affitto in Sardegna.",
     "og:description": "Prenotate un appartamento di lusso in Sardegna a Costa Paradiso. Scoprite una gemma nascosta nel cuore del Mediterraneo o della Sardegna."
   },
   "cs-CS": {
     title: "Ubytování v Sardinii | Apartmán v oblasti Costa Paradiso",
     description: "Pronájem luxusního apartmánu v Sardinii v oblasti Costa Paradiso. Krásné pláže, skvělá dostupnost a příjemná cena.",
+    'og:title': "Pronájem luxusního apartmánu v Sardinii.",
     "og:description": "Zarezervujte si luxusní apartmán na Sardinii v oblasti Costa Paradiso. Objevte skrytý klenot v srdci Středomoří neboli Sardinie."
   },
 }
@@ -91,7 +94,6 @@ export const meta = ({ data }) => {
     'mobile-web-app-capable': "yes",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
-    'og:title': "Pronájem luxusního apartmánu v Sardinii.",
     "og:type": "website",
     "og:url": "https://sardinieapartman.cz/",
     "og:image": "https://uogxhm4z.directus.app/assets/f8244c70-f32b-4adc-8bbf-de9c3c6a7753/beach-icon.webp",

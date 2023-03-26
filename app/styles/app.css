@@ -1639,6 +1639,7 @@ td.bold {
 }
 
 .lang-flag .flag-icon {
+  cursor: pointer;
   margin: 0 5px;
   font-size: 1.3em
 }

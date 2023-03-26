@@ -6,8 +6,8 @@ import LazyLoad from "react-lazy-load";
 import { getBackgroundFallbackImage, getDirectusImage } from "~/utils";
 import { useRootContext } from "~/context/root-context";
 
-const VERTICAL = [2, 6, 18, 24, 33, 36, 37];
-const HORIZONTAL = [3, 20, 30, 43];
+const VERTICAL = [2, 6, 24];
+const HORIZONTAL = [3, 30, 33];
 const BIG = [2, 11, 23, 35];
 
 
@@ -44,8 +44,6 @@ const Gallery = ({ images }) => {
             <LazyLoad>
               <div style={{ backgroundImage: image.thumbnailUrl }}></div>
             </LazyLoad>
-
-
           </a>)
       }
       )}

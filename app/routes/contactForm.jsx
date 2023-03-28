@@ -1,7 +1,8 @@
-import { Form, useActionData, useTransition } from "@remix-run/react";
+import { Form, useActionData, useSubmit, useTransition } from "@remix-run/react";
 import cs from "classnames";
 import { useEffect, useRef } from "react";
 import { Element } from "react-scroll";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Call } from "~/components/icons";
 import { Quote } from "~/components/Quote";
 import { useRootContext } from "~/context/root-context";
@@ -13,6 +14,24 @@ export default function ContactForm({ translations, quote, profileImage }) {
   const formRef = useRef();
   const messageRef = useRef();
   const { apiUrl, supportsWebP } = useRootContext()
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  const submit = useSubmit()
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const token = await executeRecaptcha("homepage")
+    const form = event.target;
+    // get the formData from that form
+    const formData = new FormData(form);
+    formData.set("captcha", token);
+
+    submit(formData, {
+      method: form.getAttribute("method") ?? form.method,
+      action: form.getAttribute("action") ?? form.action,
+    });
+  }
+
 
 
   const { email, message, name, sendDone, sendLoading, subject, phone, languages_code } = translations[0];
@@ -50,7 +69,7 @@ export default function ContactForm({ translations, quote, profileImage }) {
         <Element name="section__contact">
 
           <main>
-            <Form ref={formRef} method='post' className='form column' action={`/?lang=${languages_code}`}>
+            <Form ref={formRef} method='post' className='form column' action={`/?lang=${languages_code}`} onSubmit={handleSubmit}>
               <input className="form__input" name="name" placeholder={name} id="name" />
               <input className="form__input" name="subject" placeholder={subject} id="subject" />
               <input className="form__input" name="email" placeholder={email} id="email" />

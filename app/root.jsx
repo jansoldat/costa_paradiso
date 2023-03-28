@@ -7,12 +7,11 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-
 import { json } from "@remix-run/node";
-import { validationAction, getSchema } from "~/utils/validation";
+import stylesLightbox from "yet-another-react-lightbox/styles.css";
+import { validationAction, getSchema, getRecaptchaURL } from "~/utils/validation.server";
 import styles from "~/styles/app.css"
 import { useWebPSupportCheck } from "~/hooks/useWebPSupportCheck"
-import stylesLightbox from "yet-another-react-lightbox/styles.css";
 import { RootContext } from "./context/root-context";
 import { sendMail } from "./utils/mail.server"
 import appleFavicon from "./assets/apple-touch-icon.png"
@@ -21,6 +20,7 @@ import android192 from "./assets/android-chrome-192x192.png"
 import favicon16 from "./assets/favicon-16x16.png"
 import favicon32 from "./assets/favicon-32x32.png"
 import manifest from "./assets/site.webmanifest"
+import axios from "axios";
 
 const SUCCESS = {
   "en-US": "Email has been sent!",
@@ -30,11 +30,23 @@ const SUCCESS = {
 
 export const action = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "en-US";
+  const code = url.searchParams.get('lang') || "cs-CS";
   const { formData, errors } = await validationAction({ request, schema: getSchema(code) })
+  console.log('formData :', formData);
+  const VERIFY_URL = getRecaptchaURL(formData.captcha);
+  console.log('VERIFY_URL :', VERIFY_URL);
+
 
   if (errors) {
     return json({ errors }, { status: 400 })
+  }
+
+  const captchaResponse = await axios.post(VERIFY_URL)
+  const isValidUser = captchaResponse.data?.success;
+
+  if (!isValidUser) {
+    return json({ errors: [`Sorry mate. You did not pass recaptcha test. If this is an error please contact us on our instagram.`] },
+      { status: 400 })
   }
 
   const response = await sendMail(formData);
@@ -50,11 +62,13 @@ export const action = async ({ request }) => {
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "en-US";
+  const code = url.searchParams.get('lang') || "cs-CS";
 
   return json({
     ENV: {
       apiUrl: process.env.API_URL,
+      captchaClientSecret: process.env.CAPTCHA_CLIENT_SECRET,
+      captchaServerSecret: process.env.CAPTCHA_SERVER_SECRET,
       googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
     },
     language: code
@@ -129,7 +143,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <RootContext.Provider value={{ apiUrl: ENV.apiUrl, googleMapsApiKey: ENV.googleMapsApiKey, supportsWebP }}>
+        <RootContext.Provider value={{ apiUrl: ENV.apiUrl, googleMapsApiKey: ENV.googleMapsApiKey, captchaClientSecret: ENV.captchaClientSecret, supportsWebP, language }}>
           <Outlet />
         </RootContext.Provider>
         <ScrollRestoration />

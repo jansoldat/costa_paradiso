@@ -8,6 +8,8 @@ import Hero from '~/components/Hero';
 import { Map } from '~/components/Map';
 import { Instagram } from '~/components/icons';
 import ContactForm from './contactForm';
+import { useRootContext } from '~/context/root-context';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 export const translateFilter = (code) => ({
   translations:
@@ -20,7 +22,7 @@ export const translateFilter = (code) => ({
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "en-US";
+  const code = url.searchParams.get('lang') || "cs-CS";
 
 
 
@@ -75,10 +77,11 @@ export const loader = async ({ request }) => {
 
 export default function Index() {
   const { sectionData, contactForm, hero } = useLoaderData();
+  const { language, captchaClientSecret } = useRootContext()
 
   return (
     <>
-      <Hero {...hero.data} language={contactForm.data.translations[0].languages_code} />
+      <Hero {...hero.data} language={language} />
 
 
       {sectionData?.data?.length > 0 &&
@@ -93,9 +96,11 @@ export default function Index() {
       }
 
       <Section translations={[{ heading: contactForm.data.translations[0].title }]} kind="dark" isLast className="contact">
-        <ContactForm className="grid__form" {...contactForm.data} />
+        <GoogleReCaptchaProvider reCaptchaKey={captchaClientSecret}>
+          <ContactForm className="grid__form" {...contactForm.data} />
+        </GoogleReCaptchaProvider>
       </Section>
-      <Map languages_code={contactForm.data.translations[0].languages_code} />
+      <Map languages_code={language} />
 
 
       <footer className="column">

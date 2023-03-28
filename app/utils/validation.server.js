@@ -8,7 +8,7 @@ export async function validationAction({ request, schema }) {
 
   try {
     const formData = schema.parse(body);
-    return { formData, errors: null };
+    return { formData: { ...formData, captcha: body.captcha }, errors: null };
   } catch (err) {
     const parsedErrors = err.issues.reduce(
       (errors, error) =>
@@ -97,3 +97,5 @@ export const getSchema = (code) => {
     msg: z.string({ required_error: msg.required_error }).min(10, { message: msg.message })
   })
 }
+
+export const getRecaptchaURL = (token) => `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SERVER_SECRET}&response=${token}`

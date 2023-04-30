@@ -5,20 +5,20 @@ const List = ({ items }) => <ul className="apartment-item__list">
   {items.split("</br>").map(li => <li key={li}>{li}</li>)}
 </ul>
 
-export const ApartmentRow = ({ items }) => {
-  const listItem = items.filter(item => !item?.icon).map(item => item.translations[0].description).join("</br>");
+export const ApartmentRow = ({ itemsCollection }) => {
+  const listItem = itemsCollection.filter(item => !item?.icon).map(item => item.description).join("</br>");
 
   return (<div className="apartment-list">
-    {items.map(item => (
+    {itemsCollection.map(item => (
       <div key={item.id} className={cs("apartment-item", { "apartment-item--bigSize": !item?.icon })}>
         {item.icon
           ?
           <>
             <SvgIcon icon={item.icon} className="apartment-item__icon" />
-            <p className="apartment-item__text" dangerouslySetInnerHTML={{ __html: item.translations[0].description }} />
+            <p className="apartment-item__text" dangerouslySetInnerHTML={{ __html: item.description }} />
           </>
           :
-          <List items={item.translations[0].description} />
+          <List items={item.description} />
         }
       </div>
     ))}

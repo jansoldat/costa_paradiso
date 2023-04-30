@@ -1,11 +1,11 @@
-import svg from "~/icons/five_minutes.svg"
+import svg from "~/icons/five_minutes.svg";
 
-export const Beach = ({ image, translations }) => (
+export const Beach = ({ name, category, description, imageUrl }) => (
   <div className="beaches__element" >
-    {image ? <img loading="lazy" src={image} alt={`${translations?.[0].name} beach`} className="beaches__img lazy-img" /> : <img alt="Five minutes icon" className="beaches__img" src={svg} />}
+    {imageUrl ? <img loading="lazy" src={imageUrl} alt={`${name} beach`} className="beaches__img lazy-img" /> : <img alt="Five minutes icon" className="beaches__img" src={svg} />}
 
-    <h3 className="beaches__category">{translations[0].category}</h3>
-    <h4 className="beaches__name">{translations[0].name || "\u00A0"}</h4>
-    <p className="beaches__description">{translations[0].description}</p>
+    <h3 className="beaches__category">{category}</h3>
+    <h4 className="beaches__name">{name || "\u00A0"}</h4>
+    <p className="beaches__description">{description}</p>
   </div>
 )

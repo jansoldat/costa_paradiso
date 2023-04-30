@@ -6,14 +6,14 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { Call } from "~/components/icons";
 import { Quote } from "~/components/Quote";
 import { useRootContext } from "~/context/root-context";
-import { getBackgroundFallbackImage } from "~/utils";
 
-export default function ContactForm({ translations, quote, profileImage }) {
+export default function ContactForm({ contactQuote, profileImage, email, message, name, sendDone, sendLoading, subject, phone, }) {
   const actionData = useActionData();
   const transition = useTransition();
   const formRef = useRef();
   const messageRef = useRef();
-  const { apiUrl, supportsWebP } = useRootContext()
+
+  const { language } = useRootContext()
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const submit = useSubmit()
@@ -33,8 +33,6 @@ export default function ContactForm({ translations, quote, profileImage }) {
   }
 
 
-
-  const { email, message, name, sendDone, sendLoading, subject, phone, languages_code } = translations[0];
   const text =
     transition.state === "submitting"
       ? sendLoading
@@ -55,7 +53,7 @@ export default function ContactForm({ translations, quote, profileImage }) {
     <>
       <div className='grid'>
         <div className="grid__quote">
-          <Quote {...quote[0]} />
+          <Quote {...contactQuote} />
         </div>
         <div className="grid__name">
           <h2 className="contact__heading">Hana Alexanderová</h2>
@@ -64,12 +62,12 @@ export default function ContactForm({ translations, quote, profileImage }) {
             <h3>{phone}</h3>
           </div>
         </div>
-        <div className="grid__image" style={{ background: `no-repeat center right/cover ${getBackgroundFallbackImage({ supportsWebP, asset: profileImage, name: "section-background", apiUrl })}` }} />
+        <div className="grid__image" style={{ background: `no-repeat center right/cover url("${profileImage?.data?.attributes?.url}")` }} />
 
         <Element name="section__contact">
 
           <main>
-            <Form ref={formRef} method='post' className='form column' action={`/?lang=${languages_code}`} onSubmit={handleSubmit}>
+            <Form ref={formRef} method='post' className='form column' action={`/?lang=${language}`} onSubmit={handleSubmit}>
               <input className="form__input" name="name" placeholder={name} id="name" />
               <input className="form__input" name="subject" placeholder={subject} id="subject" />
               <input className="form__input" name="email" placeholder={email} id="email" />

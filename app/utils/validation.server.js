@@ -67,7 +67,7 @@ const VALIDATION_TRANSLATIONS = {
       message: "Il messaggio deve essere lungo almeno 10 caratteri."
     }
   },
-  "cs-CS": {
+  "cs-CZ": {
     name: {
       required_error: "Jméno je povinné pole.",
       message: "Jméno musí obsahovat alespoň 3 znaky."

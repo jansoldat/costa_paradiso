@@ -2,8 +2,7 @@ import React from 'react';
 import cs from 'classnames'
 import PropTypes from 'prop-types';
 
-export const Quote = ({ color, translations }) => {
-  const { content } = translations[0]
+export const Quote = ({ color, content }) => {
 
   return (
     <blockquote className="quote row">

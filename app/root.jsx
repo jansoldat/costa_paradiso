@@ -25,12 +25,12 @@ import axios from "axios";
 const SUCCESS = {
   "en-US": "Email has been sent!",
   "it-IT": "L'e-mail è stata inviata!",
-  "cs-CS": "Zpráva byla úspěšně odeslána!",
+  "cs-CZ": "Zpráva byla úspěšně odeslána!",
 }
 
 export const action = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "cs-CS";
+  const code = url.searchParams.get('lang') || "cs-CZ";
   const { formData, errors } = await validationAction({ request, schema: getSchema(code) })
   console.log('formData :', formData);
   const VERIFY_URL = getRecaptchaURL(formData.captcha);
@@ -62,7 +62,7 @@ export const action = async ({ request }) => {
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "cs-CS";
+  const code = url.searchParams.get('lang') || "cs-CZ";
 
   return json({
     ENV: {
@@ -89,7 +89,7 @@ const META_TRANSLATIONS = {
     'og:title': "Appartamento di lusso in affitto in Sardegna.",
     "og:description": "Prenotate un appartamento di lusso in Sardegna a Costa Paradiso. Scoprite una gemma nascosta nel cuore del Mediterraneo o della Sardegna."
   },
-  "cs-CS": {
+  "cs-CZ": {
     title: "Ubytování v Sardinii | Apartmán v oblasti Costa Paradiso",
     description: "Pronájem luxusního apartmánu v Sardinii v oblasti Costa Paradiso. Krásné pláže, skvělá dostupnost a příjemná cena.",
     'og:title': "Pronájem luxusního apartmánu v Sardinii.",

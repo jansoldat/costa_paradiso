@@ -9,7 +9,7 @@ import { useWindowSize } from '~/hooks/useWindowSize'
 import { FlagCz, FlagEn, FlagIt, Hamburger } from './icons'
 
 const translations = {
-  "cs-CS": {
+  "cs-CZ": {
     showcaseQuote: "skrytý klenot v srdci Středomoří neboli Sardinie",
     about: "Oblast",
     apartment: "Apartmán",
@@ -38,8 +38,9 @@ const translations = {
   }
 }
 
-const Hero = ({ background, sky, language }) => {
-  const { apiUrl, supportsWebP } = useRootContext()
+const Hero = () => {
+  const { language, supportsWebP } = useRootContext()
+
   const size = useWindowSize();
   const [, setSearchParams] = useSearchParams();
   const showcaseContentRef = useRef(null);
@@ -111,13 +112,13 @@ const Hero = ({ background, sky, language }) => {
         <p className="showcase__quote">{translations[language].showcaseQuote}</p>
       </div>
       <div className="showcase__bg">
-        <div className="showcase__beach" style={{ background: `no-repeat top center/cover ${getBackgroundFallbackImage({ supportsWebP, asset: background, name: "hero-beach", apiUrl, format: "png", quality: 80 })}` }} />
-        <div className="showcase__sky" style={{ background: `no-repeat center center/cover ${getBackgroundFallbackImage({ supportsWebP, asset: sky, name: "hero-background", apiUrl, quality: 80 })}` }} />
+        <div className="showcase__beach" style={{ background: `no-repeat top center/cover ${supportsWebP ? "url('https://res.cloudinary.com/dsnfelexc/image/upload/v1682765430/Hero/background_xrtylw.webp')" : "url('https://res.cloudinary.com/dsnfelexc/image/upload/v1682765386/Hero/background_ch1wfm.png')"}` }} />
+        <div className="showcase__sky" style={{ background: `no-repeat center center/cover ${supportsWebP ? "url('https://res.cloudinary.com/dsnfelexc/image/upload/v1682765771/Hero/sky_kmxygm.webp')" : "url('https://res.cloudinary.com/dsnfelexc/image/upload/v1682765385/Hero/sky_gqcnrd.jpg')"}` }} />
       </div>
       <svg className="showcase__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 195.18"><path className="showcase__curve" d="M1400,195.18V97.59c-256.86,63.57-283.79,112-713.14,34.46C273.76,57.47,0,183.94,0,183.94v11.24Z"></path>
       </svg>
       <div className="lang-flag">
-        {language !== "cs-CS" && <FlagCz className="flag-icon" onClick={() => handleFlagClick("cs-CS")} />}
+        {language !== "cs-CZ" && <FlagCz className="flag-icon" onClick={() => handleFlagClick("cs-CZ")} />}
         {language !== "en-US" && <FlagEn className="flag-icon" onClick={() => handleFlagClick("en-US")} />}
         {language !== "it-IT" && <FlagIt className="flag-icon" onClick={() => handleFlagClick("it-IT")} />}
       </div>

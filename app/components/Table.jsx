@@ -1,14 +1,14 @@
-import React from "react"
-import cs from "classnames"
+import React from "react";
+import cs from "classnames";
 
-export const Table = ({ items, translations }) => (
+export const Table = ({ itemsCollection, heading }) => (
   <>
-    <h2 className='tariff__heading'>{translations?.[0].heading}</h2>
+    <h2 className='tariff__heading'>{heading}</h2>
     <table>
       <tbody>
-        {items.map((row) => {
+        {(itemsCollection || []).map((row) => {
           let content = [];
-          try { content = JSON.parse(row.translations[0].content) } catch (error) { content = []; }
+          try { content = JSON.parse(row.content) } catch (error) { content = []; }
 
           return (
             <tr key={row.id}>

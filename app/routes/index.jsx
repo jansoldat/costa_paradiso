@@ -10,98 +10,55 @@ import { Instagram } from '~/components/icons';
 import ContactForm from './contactForm';
 import { useRootContext } from '~/context/root-context';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import qs from 'qs';
 
-export const translateFilter = (code) => ({
-  translations:
-  {
-    _filter:
-      { languages_code: { _eq: code } }
-  },
-})
+const getQuery = locale => qs.stringify({ populate: "deep", locale })
+
 
 
 export const loader = async ({ request }) => {
   const url = new URL(request.url)
-  const code = url.searchParams.get('lang') || "cs-CS";
+  const code = url.searchParams.get('lang') || "cs-CZ";
+  const BASE_URL = `${process.env.API_URL}/api/sections/?${getQuery(code)}`;
+  const CONTACT_URL = `${process.env.API_URL}/api/contact/?${getQuery(code)}`;
 
+  const res = await fetch(`${BASE_URL}`);
+  const contactRes = await fetch(`${CONTACT_URL}`);
+  const data = await res.json();
+  const contactData = await contactRes.json();
 
-
-  const directus = new Directus(process.env.API_URL, { MAX_RELATIONAL_DEPTH: 20 });
-
-  const contactForm = await directus.items('contactForm').readByQuery({
-    fields: "*, translations.*, quote.*, quote.translations.*",
-    deep: {
-      ...translateFilter(code),
-      quote: { ...translateFilter(code) }
-    }
-  });
-
-  const hero = await directus.items('Hero').readByQuery({
-    fields: "*, translations.*",
-    deep: {
-      ...translateFilter(code),
-    }
-  });
-
-  const sectionData = await directus.items('sections').readByQuery({
-    fields: ["*", "translations.*,Blocks.*, Blocks.item:quote.*, Blocks.item:quote.translations.*, Blocks.item:htmlText.*, Blocks.item:htmlText.translations.*, Blocks.item:apartmentItems.*, Blocks.item:apartmentItems.items.*, Blocks.item:apartmentItems.items.translations.*, Blocks.item:gallery, Blocks.item:gallery.images.*, Blocks.item:beachItems.items.*, Blocks.item:beachItems.items.translations.*, Blocks.item:priceTable.*, Blocks.item:priceTable.translations.*, Blocks.item:priceTable.items.*, Blocks.item:priceTable.items.translations.*, Blocks.item:iconItems.*, Blocks.item:iconItems.items.*, Blocks.item:iconItems.items.translations.*"],
-    sort: ["sort"],
-    deep: {
-      ...translateFilter(code),
-      Blocks: {
-        "item:quote": { ...translateFilter(code) },
-        "item:htmlText": { ...translateFilter(code) },
-        "item:apartmentItems": {
-          items:
-            { ...translateFilter(code) }
-        },
-        "item:beachItems": {
-          items:
-            { ...translateFilter(code) }
-        },
-        "item:iconItems": {
-          items:
-            { ...translateFilter(code) }
-        },
-        "item:priceTable": {
-          ...translateFilter(code),
-          items:
-            { ...translateFilter(code) }
-        },
-      },
-    }
-  });
-
-  return json({ sectionData, contactForm, hero });
+  return { data: data?.data, contactData: contactData?.data };
 }
 
 export default function Index() {
-  const { sectionData, contactForm, hero } = useLoaderData();
-  const { language, captchaClientSecret } = useRootContext()
+  const { data, contactData } = useLoaderData();
+  const { language, captchaClientSecret } = useRootContext();
+
 
   return (
     <>
-      <Hero {...hero.data} language={language} />
+      <Hero />
 
 
-      {sectionData?.data?.length > 0 &&
-        sectionData.data.map(section => {
+      {data?.length > 0 &&
+        data.map(section => {
+          const sectionInfo = section?.attributes;
+          const blocks = sectionInfo.slug === "gallery" ? [section?.attributes?.sectionGal] : section?.attributes?.Blocks;
 
-          return <Section key={section.id} {...section} >
+          return <Section key={section.id} {...sectionInfo} >
             <>
-              {section.Blocks.map(block => <BlockBuilder key={block.id} {...block} />)}
+              {blocks.map(block => <BlockBuilder key={[block.__component, block.id].join("--")} __component={sectionInfo.slug === "gallery" && "gallery"} {...block} />)}
             </>
           </Section>
         })
       }
 
-      <Section translations={[{ heading: contactForm.data.translations[0].title }]} kind="dark" isLast className="contact">
+      <Section heading={contactData?.attributes?.title} kind="dark" isLast className="contact" slug="contact">
         <GoogleReCaptchaProvider reCaptchaKey={captchaClientSecret}>
-          <ContactForm className="grid__form" {...contactForm.data} />
+          <ContactForm className="grid__form" {...contactData?.attributes} />
         </GoogleReCaptchaProvider>
       </Section>
       <Map languages_code={language} />
-
 
       <footer className="column">
         <button className="footer__link" onClick={animateScroll.scrollToTop}>

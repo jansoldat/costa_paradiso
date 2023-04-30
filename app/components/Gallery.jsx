@@ -3,27 +3,24 @@ import cs from "classnames";
 import Lightbox from "yet-another-react-lightbox";
 import LazyLoad from "react-lazy-load";
 
-import { getBackgroundFallbackImage, getDirectusImage } from "~/utils";
-import { useRootContext } from "~/context/root-context";
-
 const VERTICAL = [2, 6, 24];
 const HORIZONTAL = [3, 30, 33];
 const BIG = [2, 11, 23, 35];
 
 
 const Gallery = ({ images }) => {
-  const { apiUrl, supportsWebP } = useRootContext()
-
   const [index, setIndex] = React.useState(-1);
 
-  const galleryImages = useMemo(() => images.map((image, index) => ({
-    id: image.id,
-    src: getDirectusImage({ asset: image.directus_files_id, apiUrl, width: 1250 }),
-    thumbnailUrl: getBackgroundFallbackImage({ supportsWebP, asset: image.directus_files_id, apiUrl, width: 250, name: `image-gallery-${index}` }),
-    isVertical: VERTICAL.includes(index),
-    isHorizontal: HORIZONTAL.includes(index),
-    isBig: BIG.includes(index)
-  })), [apiUrl, images, supportsWebP])
+  const galleryImages = useMemo(() => images.map((image, index) => {
+    return ({
+      id: ['image', image.id].join("--"),
+      src: image.attributes.formats?.large?.url || image.attributes.url,
+      thumbnailUrl: image?.attributes?.formats?.thumbnail?.url,
+      isVertical: VERTICAL.includes(index),
+      isHorizontal: HORIZONTAL.includes(index),
+      isBig: BIG.includes(index)
+    })
+  }), [images])
 
   return (
     <div className="gallery-container" >
@@ -42,7 +39,7 @@ const Gallery = ({ images }) => {
             })}
             href="#">
             <LazyLoad>
-              <div style={{ backgroundImage: image.thumbnailUrl }}></div>
+              <div style={{ backgroundImage: `url("${image.thumbnailUrl}")` }}></div>
             </LazyLoad>
           </a>)
       }

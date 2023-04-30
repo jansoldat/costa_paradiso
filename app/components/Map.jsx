@@ -23,7 +23,7 @@ const INFOBOX_TRANSLATION = {
     button: "Navigare"
 
   },
-  "cs-CS": {
+  "cs-CZ": {
     header: "Poloha našeho apartmánu.",
     button: "Navigovat"
   }

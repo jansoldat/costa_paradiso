@@ -1,2 +1,2 @@
 
-export const HTMLTextBlock = ({ translations }) => <div dangerouslySetInnerHTML={{ __html: translations?.[0]?.content }} />
+export const HTMLTextBlock = ({ content }) => <div dangerouslySetInnerHTML={{ __html: content }} />

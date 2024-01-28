@@ -4,7 +4,6 @@ import { Link } from 'react-scroll'
 import { gsap } from 'gsap';
 import cs from 'classnames'
 import { useRootContext } from '~/context/root-context'
-import { getBackgroundFallbackImage } from '~/utils'
 import { useWindowSize } from '~/hooks/useWindowSize'
 import { FlagCz, FlagEn, FlagIt, Hamburger } from './icons'
 
@@ -118,9 +117,9 @@ const Hero = () => {
       <svg className="showcase__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 195.18"><path className="showcase__curve" d="M1400,195.18V97.59c-256.86,63.57-283.79,112-713.14,34.46C273.76,57.47,0,183.94,0,183.94v11.24Z"></path>
       </svg>
       <div className="lang-flag">
-        {language !== "cs-CZ" && <FlagCz className="flag-icon" onClick={() => handleFlagClick("cs-CZ")} />}
-        {language !== "en-US" && <FlagEn className="flag-icon" onClick={() => handleFlagClick("en-US")} />}
-        {language !== "it-IT" && <FlagIt className="flag-icon" onClick={() => handleFlagClick("it-IT")} />}
+        {language !== "cs-CZ" && <img onClick={() => handleFlagClick("cs-CZ")} src={<FlagCz className="flag-icon"  />}  alt='czech'/> }
+        {language !== "en-US" && <img onClick={() => handleFlagClick("en-US")} src={<FlagEn className="flag-icon" />} alt='english' />}
+        {language !== "it-IT" && <img onClick={() => handleFlagClick("it-IT")} src={<FlagIt className="flag-icon"/>} alt='italian' />}
       </div>
     </header>
 

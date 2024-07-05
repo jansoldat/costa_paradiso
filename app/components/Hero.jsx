@@ -4,7 +4,6 @@ import { Link } from 'react-scroll'
 import { gsap } from 'gsap';
 import cs from 'classnames'
 import { useRootContext } from '~/context/root-context'
-import { getBackgroundFallbackImage } from '~/utils'
 import { useWindowSize } from '~/hooks/useWindowSize'
 import { FlagCz, FlagEn, FlagIt, Hamburger } from './icons'
 

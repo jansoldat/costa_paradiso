@@ -1636,11 +1636,13 @@ td.bold {
   position: absolute;
   top: 93%;
   right: 0px;
-  z-index: 100
+  z-index: 100;
+  padding: 0 4px;
 }
 
 .lang-flag .flag-icon {
   cursor: pointer;
-  margin: 0 5px;
-  font-size: 1.3em
+  margin: 0 4px;
+  font-size: 1.3em;
+  min-width: calc(50% - 10px);
 }

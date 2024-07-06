@@ -1,5 +1,3 @@
-import { Directus } from '@directus/sdk';
-import { json } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { animateScroll } from 'react-scroll';
 import { BlockBuilder } from '~/components/BlockBuilder';

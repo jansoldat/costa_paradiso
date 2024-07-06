@@ -110,7 +110,7 @@ export const meta = ({ data }) => {
     "apple-mobile-web-app-status-bar-style": "default",
     "og:type": "website",
     "og:url": "https://sardinieapartman.cz/",
-    "og:image": "https://uogxhm4z.directus.app/assets/f8244c70-f32b-4adc-8bbf-de9c3c6a7753/beach-icon.webp",
+    "og:image": "https://res.cloudinary.com/dsnfelexc/image/upload/v1682765430/Hero/background_xrtylw.webp",
     "og:locale:alternate": ["cs-CZ", "it-IT"],
 
   })

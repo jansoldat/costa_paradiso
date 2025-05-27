@@ -1,0 +1,30 @@
+{
+  "quote": {
+    "content": "test IT"
+  },
+  "price": {
+    "title": "LISTINO PREZZI E CONDIZIONI",
+    "itemsCollection": [
+      {
+        "id": 1,
+        "content": "[\"giugno e settembre\", \"3750,-CZK/ 150 €\", \"per 1 notte\"]",
+        "isBold": false
+      },
+      {
+        "id": 2,
+        "content": "[\"luglio, agosto\", \"4250 CZK/ 170 €\", \"per 1 notte\"]",
+        "isBold": true
+      },
+      {
+        "id": 3,
+        "content": "[\"pulizia appartamento\", \"2000,-CZK/ 80 €\", \"per intero soggiorno\"]",
+        "isBold": false
+      },
+      {
+        "id": 4,
+        "content": "[\"letto aggiuntivo\", \"750 CZK / 30 €\", \"per 1 notte\"]",
+        "isBold": false
+      }
+    ]
+  }
+}

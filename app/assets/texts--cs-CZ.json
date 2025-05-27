@@ -1,0 +1,158 @@
+{
+  "about": {
+    "title": "Úvod",
+    "quote": "Chcete vidět 4 odstíny modré?",
+    "text": "<p>Pokud ano, tak nabízíme k pronájmu apartmán na severozápadě Sardinie v lokalitě Costa Paradiso, která je vzdálená <span class='text-high--blue'> 95 km od letiště Olbia a 105 km od letiště Alghero.</span></p></br><p>V Costa Paradiso neboli pobřežním ráji se budete cítit vskutku nebesky. Je to <span class='text-high--blue'>samostatný resort s vlastní infrastrukturou</span> (supermarkety, restaurace, kavárny, bary, rybárny). Nachází se ve specifickém skalnatém pobřeží a poskytuje <span class='text-high--blue'>ideální podmínky pro potápění</span> (Diving Centrum) a pro šnorchlování na plážích (Li Cossi, Cala Tinnari, La Sorgente Li Baietti).</p></br><p>Prozkoumat můžete i vzdálenější písčité pláže (20 km) Isola Rossa, Badesi a Vignola, ke kterým se dostanete námi zapůjčeným autem.</p>"
+  },
+  "apartment": {
+    "title": "Apartmán",
+    "items": [
+      {
+        "id": 1,
+        "icon": "search",
+        "description": "obývací pokoj, dvě ložnice, kuchyně"
+      },
+      {
+        "id": 2,
+        "icon": "air-conditioning",
+        "description": "klimatizace ve všech místnostech"
+      },
+      {
+        "id": 3,
+        "icon": "garage",
+        "description": "parkovací místo se nachází v místě apartmánu"
+      },
+      {
+        "id": 4,
+        "icon": "sunset",
+        "description": "výhled na moře"
+      },
+      {
+        "id": 5,
+        "icon": "towels",
+        "description": "ložní prádlo a ručníky"
+      },
+      {
+        "id": 6,
+        "icon": "terrace",
+        "description": "částečně zastřešená terasa"
+      },
+      {
+        "id": 7,
+        "icon": "wifi",
+        "description": "WiFi k dispozici v apartmánu"
+      },
+      {
+        "id": 8,
+        "description": "kuchyňská linka je vybavena </br>koupelna s pračkou a fénem"
+      },
+      {
+        "id": 9,
+        "description": "4 lůžka + 1 přistýlka </br>přístup není bezbariérový"
+      }
+    ]
+  },
+  "gallery": {
+    "title": "Galerie"
+  },
+  "surroundings": {
+    "title": "V blízkosti",
+    "items": [
+      {
+        "id": 1,
+        "name": "La Sorgente, Li Baietti",
+        "category": "PŘÍRODNÍ PLÁŽE",
+        "description": "do 5 minut chůzí",
+        "imageId": "sorgente"
+      },
+      {
+        "id": 2,
+        "name": "Li Cossi",
+        "category": "PÍSČITÁ PLÁŽ",
+        "description": "5 minut autem a 15 – 20 minut chůze",
+        "imageId": "cossi"
+      },
+      {
+        "id": 3,
+        "name": "Tinnari",
+        "category": "OBLÁZKOVÁ PLÁŽ",
+        "description": "5 minut autem a následně taxi člun",
+        "imageId": "tinnari"
+      },
+      {
+        "id": 4,
+        "category": "DO 5 MINUT",
+        "description": "kavárna, restaurace, bar, pizzeria, obchod s potravinami, rybárna",
+        "imageId": null
+      }
+    ]
+  },
+  "price": {
+    "title": "CENÍK A PODMÍNKY",
+    "subheading": "Ceník Apartmánu",
+    "itemsCollection": [
+      {
+        "id": 1,
+        "content": "[\"červen a září\", \"3750,-Kč/ 150 €\", \"za 1 noc\"]",
+        "isBold": false
+      },
+      {
+        "id": 2,
+        "content": "[\"červenec, srpen\", \"4250 Kč/ 170 €\", \"za 1 noc\"]",
+        "isBold": true
+      },
+      {
+        "id": 3,
+        "content": "[\"úklid apartmánu\", \"2000,-Kč/ 80 €\", \"za celý pobyt\"]",
+        "isBold": false
+      },
+      {
+        "id": 4,
+        "content": "[\"přistýlka\", \"750 Kč / 30 €\", \"za 1 noc\"]",
+        "isBold": false
+      }
+    ],
+    "tariffs": [
+      {
+        "id": 1,
+        "icon": "car",
+        "title": "PRONÁJEM AUTA",
+        "description": "- Škoda Karoq 4x4</br>- automatická převodovka</br>- <strong>2000,-Kč/80 € za 1 den</strong></br>- vratná kauce 5000,-Kč/200 €</br>- možnost pronajmutí na libovolný počet dnů"
+      },
+      {
+        "id": 2,
+        "icon": "check-in",
+        "title": "PŘÍJEZD A ODJEZD",
+        "description": "- den příjezdu a odjezdu je zcela na vás</br>- čas příjezdu – od 17.00</br>- čas odjezdu – do 11.00</br>- <strong>minimální počet dnů pro ubytování = 6 (nocí)</strong>"
+      },
+      {
+        "id": 3,
+        "icon": "bill",
+        "title": "PLATEBNÍ PODMÍNKY",
+        "description": "- záloha 50% je vratná pouze 30 dnů před termínem příjezdu (poté je nevratná)"
+      },
+      {
+        "id": 4,
+        "icon": "debit-card",
+        "title": "PLATBA",
+        "description": "- záloha 50% + doplatek 3 dny před příjezdem</br>- <strong>číslo účtu:</strong></br>CZK - 2105635394/2700</br>EUR - 2108837290/2700"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kontakt",
+    "quote": "Máte zájem o rezervaci pobytu v krásném apartmánu v blízkosti přírodní pláže v Costa Paradiso?",
+    "contactPerson": "Hana Alexanderová",
+    "phone": "+420 606 765 355",
+    "form": {
+      "namePlaceholder": "Jméno a Příjmení",
+      "subjectPlaceholder": "Předmět",
+      "emailPlaceholder": "vas@email.cz",
+      "messagePlaceholder": "Text Vaší zprávy...",
+      "submitButton": "Odeslat",
+      "sendingButton": "Odesílání...",
+      "successMessage": "Zpráva byla úspěšně odeslána!",
+      "errorMessage": "Při odesílání zprávy došlo k chybě. Zkuste to prosím znovu."
+    }
+  }
+}

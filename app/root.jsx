@@ -26,18 +26,9 @@ import favicon32 from "./assets/favicon-32x32.png";
 import manifest from "./assets/site.webmanifest";
 import axios from "axios";
 
-const SUCCESS = {
-  "en-US": "Email has been sent!",
-  "it-IT": "L'e-mail è stata inviata!",
-  "cs-CZ": "Zpráva byla úspěšně odeslána!",
-};
-
-export const action = async ({ request }) => {
-  const url = new URL(request.url);
-  const code = url.searchParams.get("lang") || "cs-CZ";
-  const { formData, errors } = await validationAction({
+export const action = async ({ request }) => {  const { formData, errors } = await validationAction({
     request,
-    schema: getSchema(code),
+    schema: getSchema(),
   });
   // console.log('formData :', formData);
   const VERIFY_URL = getRecaptchaURL(formData.captcha);
@@ -54,7 +45,7 @@ export const action = async ({ request }) => {
     return json(
       {
         errors: [
-          `Sorry mate. You did not pass recaptcha test. If this is an error please contact us on our instagram.`,
+          `Promiň, kámo. Neprošel jsi testem reCAPTCHA. Pokud je to omyl, kontaktuj nás prosím na našem Instagramu.`,
         ],
       },
       { status: 400 }
@@ -66,20 +57,17 @@ export const action = async ({ request }) => {
     return json(
       {
         errors: [
-          `Error during sending email. Please contact us at this adress: ${process.env.CONTACT_EMAIL}`,
+          `Chyba při odesílání e-mailu. Prosím, kontaktujte nás na této adrese: ${process.env.CONTACT_EMAIL}`,
         ],
       },
       { status: 400 }
     );
   }
 
-  return json({ success: SUCCESS[code] }, { status: 200 });
+  return json({ success: "Zpráva byla úspěšně odeslána!" }, { status: 200 });
 };
 
 export const loader = async ({ request }) => {
-  const url = new URL(request.url);
-  const code = url.searchParams.get("lang") || "cs-CZ";
-
   return json({
     ENV: {
       apiUrl: process.env.API_URL,
@@ -87,41 +75,19 @@ export const loader = async ({ request }) => {
       captchaServerSecret: process.env.CAPTCHA_SERVER_SECRET,
       googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
     },
-    language: code,
   });
 };
 
-const META_TRANSLATIONS = {
-  "en-US": {
-    title: "Accommodation in Sardinia | Apartment in Costa Paradiso region",
-    description:
-      "Luxury apartment for rent in Sardinia in the Costa Paradiso area. Beautiful beaches, great accessibility and nice price.",
-    "og:title": "Luxury apartment for rent in Sardinia.",
-    "og:description":
-      "Book a luxury apartment in Sardinia in Costa Paradiso. Discover a hidden gem in the heart of the Mediterranean or Sardinia.",
-  },
-  "it-IT": {
-    title: "Alloggio in Sardegna | Appartamento in zona di Costa Paradiso",
-    description:
-      "Appartamento di lusso in affitto in Sardegna nella zona di Costa Paradiso. Spiagge bellissime, grande accessibilità e prezzo conveniente.",
-    "og:title": "Appartamento di lusso in affitto in Sardegna.",
-    "og:description":
-      "Prenotate un appartamento di lusso in Sardegna a Costa Paradiso. Scoprite una gemma nascosta nel cuore del Mediterraneo o della Sardegna.",
-  },
-  "cs-CZ": {
+
+export const meta = ({ data }) => {
+  return {
+    charset: "utf-8",
     title: "Ubytování v Sardinii | Apartmán v oblasti Costa Paradiso",
     description:
       "Pronájem luxusního apartmánu v Sardinii v oblasti Costa Paradiso. Krásné pláže, skvělá dostupnost a příjemná cena.",
     "og:title": "Pronájem luxusního apartmánu v Sardinii.",
     "og:description":
       "Zarezervujte si luxusní apartmán na Sardinii v oblasti Costa Paradiso. Objevte skrytý klenot v srdci Středomoří neboli Sardinie.",
-  },
-};
-export const meta = ({ data }) => {
-  return {
-    charset: "utf-8",
-    title: "Costa Paradiso",
-    ...META_TRANSLATIONS[data.language],
     viewport: "width=device-width,initial-scale=1",
     author: "Jan Soldát",
     robots: "index, follow",
@@ -156,11 +122,11 @@ export function links() {
 }
 
 export default function App() {
-  const { ENV, language } = useLoaderData();
+  const { ENV } = useLoaderData();
   const supportsWebP = useWebPSupportCheck();
 
   return (
-    <html lang={language}>
+    <html lang="cs-CZ">
       <head>
         <Meta />
         <Links />
@@ -172,7 +138,7 @@ export default function App() {
             googleMapsApiKey: ENV.googleMapsApiKey,
             captchaClientSecret: ENV.captchaClientSecret,
             supportsWebP,
-            language,
+            language: "cs-CZ",
           }}
         >
           <Outlet />

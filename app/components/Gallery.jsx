@@ -7,20 +7,21 @@ const VERTICAL = [2, 6, 24];
 const HORIZONTAL = [3, 30, 33];
 const BIG = [2, 11, 23, 35];
 
-const SOURCE = "https://res.cloudinary.com/dsnfelexc/image/upload/v1682857704/";
+const THUMBNAIL_SOURCE = "https://res.cloudinary.com/dsnfelexc/image/upload/v1757961934/gallery/thumbnail/";
+const SOURCE = "https://res.cloudinary.com/dsnfelexc/image/upload/v1757961919/gallery/gallery/";
 
 const getImageUrls = () => {
   return [
     {
       id: "1",
       attributes: {
-        url: `${SOURCE}gimg_1_jpg_e55c3feb5b.webp`,
+        url: `${SOURCE}gal_1_ncqzhf.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_1_jpg_e55c3feb5b.webp`,
+            url: `${SOURCE}gal_1_ncqzhf.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_1_jpg_e55c3feb5b.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_1_thumb_z6woz1.webp`,
           },
         },
       },
@@ -28,13 +29,13 @@ const getImageUrls = () => {
     {
       id: "2",
       attributes: {
-        url: `${SOURCE}gimg_2_jpg_e2f39af0e5.webp`,
+        url: `${SOURCE}gal_2_uqoo05.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_2_jpg_e2f39af0e5.webp`,
+            url: `${SOURCE}gal_2_uqoo05.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_2_jpg_e2f39af0e5.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_2_thumb_rfxyuw.webp`,
           },
         },
       },
@@ -42,13 +43,13 @@ const getImageUrls = () => {
     {
       id: "3",
       attributes: {
-        url: `${SOURCE}gimg_3_jpg_c77200d606.webp`,
+        url: `${SOURCE}gal_3_hvvnho.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_3_jpg_c77200d606.webp`,
+            url: `${SOURCE}gal_3_hvvnho.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_3_jpg_c77200d606.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_3_thumb_qnb1q2.webp`,
           },
         },
       },
@@ -56,16 +57,13 @@ const getImageUrls = () => {
     {
       id: "4",
       attributes: {
-        url: `${SOURCE}gimg_4_jpg_167160916a.webp`,
+        url: `${SOURCE}gal_4_nsvvip.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_4_jpg_167160916a.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_4_jpg_167160916a.webp`,
+            url: `${SOURCE}gal_4_nsvvip.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_4_jpg_167160916a.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_4_thumb_aamut5.webp`,
           },
         },
       },
@@ -73,16 +71,13 @@ const getImageUrls = () => {
     {
       id: "5",
       attributes: {
-        url: `${SOURCE}gimg_5_jpg_a69db6b0ed.webp`,
+        url: `${SOURCE}gal_5_yifyxt.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_5_jpg_a69db6b0ed.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_5_jpg_a69db6b0ed.webp`,
+            url: `${SOURCE}gal_5_yifyxt.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_5_jpg_a69db6b0ed.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_5_thumb_udy2db.webp`,
           },
         },
       },
@@ -90,16 +85,13 @@ const getImageUrls = () => {
     {
       id: "6",
       attributes: {
-        url: `${SOURCE}gimg_6_jpg_e804323cc2.webp`,
+        url: `${SOURCE}gal_6_gjvanp.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_6_jpg_e804323cc2.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_6_jpg_e804323cc2.webp`,
+            url: `${SOURCE}gal_6_gjvanp.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_6_jpg_e804323cc2.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_6_thumb_ttoayi.webp`,
           },
         },
       },
@@ -107,16 +99,13 @@ const getImageUrls = () => {
     {
       id: "7",
       attributes: {
-        url: `${SOURCE}gimg_7_jpg_8a7f00948b.webp`,
+        url: `${SOURCE}gal_7_uc5bxi.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_7_jpg_8a7f00948b.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_7_jpg_8a7f00948b.webp`,
+            url: `${SOURCE}gal_7_uc5bxi.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_7_jpg_8a7f00948b.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_7_thumb_qdvuaz.webp`,
           },
         },
       },
@@ -124,16 +113,13 @@ const getImageUrls = () => {
     {
       id: "8",
       attributes: {
-        url: `${SOURCE}gimg_8_jpg_8b4e9ea337.webp`,
+        url: `${SOURCE}gal_8_p1plcl.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_8_jpg_8b4e9ea337.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_8_jpg_8b4e9ea337.webp`,
+            url: `${SOURCE}gal_8_p1plcl.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_8_jpg_8b4e9ea337.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_8_thumb_l1s6z3.webp`,
           },
         },
       },
@@ -141,16 +127,41 @@ const getImageUrls = () => {
     {
       id: "9",
       attributes: {
-        url: `${SOURCE}gimg_9_jpg_32529356b0.webp`,
+        url: `${SOURCE}gal_9_vq0rib.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_9_jpg_32529356b0.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_9_jpg_32529356b0.webp`,
+            url: `${SOURCE}gal_9_vq0rib.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_9_jpg_32529356b0.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_9_thumb_dvgcfe.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "10",
+      attributes: {
+        url: `${SOURCE}gal_10_budxi3.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_10_budxi3.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_10_thumb_spmkf0.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "11",
+      attributes: {
+        url: `${SOURCE}gal_11_qvk5zq.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_11_qvk5zq.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_11_thumb_bgpsvz.webp`,
           },
         },
       },
@@ -158,16 +169,13 @@ const getImageUrls = () => {
     {
       id: "12",
       attributes: {
-        url: `${SOURCE}gimg_10_jpg_861f15279b.webp`,
+        url: `${SOURCE}gal_12_pismgo.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_10_jpg_861f15279b.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_10_jpg_861f15279b.webp`,
+            url: `${SOURCE}gal_12_pismgo.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_10_jpg_861f15279b.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_12_thumb_hox6zn.webp`,
           },
         },
       },
@@ -175,16 +183,13 @@ const getImageUrls = () => {
     {
       id: "13",
       attributes: {
-        url: `${SOURCE}gimg_11_jpg_6686759684.webp`,
+        url: `${SOURCE}gal_13_o1fegj.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_11_jpg_6686759684.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_11_jpg_6686759684.webp`,
+            url: `${SOURCE}gal_13_o1fegj.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_11_jpg_6686759684.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_13_thumb_jpyoy7.webp`,
           },
         },
       },
@@ -192,16 +197,13 @@ const getImageUrls = () => {
     {
       id: "14",
       attributes: {
-        url: `${SOURCE}gimg_12_jpg_ca1939915a.webp`,
+        url: `${SOURCE}gal_14_nhylbb.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_12_jpg_ca1939915a.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_12_jpg_ca1939915a.webp`,
+            url: `${SOURCE}gal_14_nhylbb.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_12_jpg_ca1939915a.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_14_thumb_kyqsmy.webp`,
           },
         },
       },
@@ -209,16 +211,13 @@ const getImageUrls = () => {
     {
       id: "15",
       attributes: {
-        url: `${SOURCE}gimg_13_jpg_877ef2fa9c.webp`,
+        url: `${SOURCE}gal_15_knxpoz.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_13_jpg_877ef2fa9c.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_13_jpg_877ef2fa9c.webp`,
+            url: `${SOURCE}gal_15_knxpoz.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_13_jpg_877ef2fa9c.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_15_thumb_ukdmnq.webp`,
           },
         },
       },
@@ -226,16 +225,13 @@ const getImageUrls = () => {
     {
       id: "16",
       attributes: {
-        url: `${SOURCE}gimg_14_jpg_24fea04cc6.webp`,
+        url: `${SOURCE}gal_16_fhxexq.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_14_jpg_24fea04cc6.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_14_jpg_24fea04cc6.webp`,
+            url: `${SOURCE}gal_16_fhxexq.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_14_jpg_24fea04cc6.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_16_thumb_e7cxhr.webp`,
           },
         },
       },
@@ -243,16 +239,13 @@ const getImageUrls = () => {
     {
       id: "17",
       attributes: {
-        url: `${SOURCE}gimg_15_jpg_4889d91b79.webp`,
+        url: `${SOURCE}gal_17_fco6ut.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_15_jpg_4889d91b79.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_15_jpg_4889d91b79.webp`,
+            url: `${SOURCE}gal_17_fco6ut.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_15_jpg_4889d91b79.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_17_thumb_on5jtq.webp`,
           },
         },
       },
@@ -260,16 +253,13 @@ const getImageUrls = () => {
     {
       id: "18",
       attributes: {
-        url: `${SOURCE}gimg_16_jpg_38aedaadc3.webp`,
+        url: `${SOURCE}gal_18_k0qfvs.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_16_jpg_38aedaadc3.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_16_jpg_38aedaadc3.webp`,
+            url: `${SOURCE}gal_18_k0qfvs.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_16_jpg_38aedaadc3.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_18_thumb_dw7unr.webp`,
           },
         },
       },
@@ -277,16 +267,13 @@ const getImageUrls = () => {
     {
       id: "19",
       attributes: {
-        url: `${SOURCE}gimg_17_jpg_cb7e2ffc9f.webp`,
+        url: `${SOURCE}gal_19_hhd4zk.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_17_jpg_cb7e2ffc9f.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_17_jpg_cb7e2ffc9f.webp`,
+            url: `${SOURCE}gal_19_hhd4zk.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_17_jpg_cb7e2ffc9f.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_19_thumb_ofvven.webp`,
           },
         },
       },
@@ -294,16 +281,13 @@ const getImageUrls = () => {
     {
       id: "20",
       attributes: {
-        url: `${SOURCE}gimg_18_jpg_e9c4bbb880.webp`,
+        url: `${SOURCE}gal_20_gji7sy.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_18_jpg_e9c4bbb880.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_18_jpg_e9c4bbb880.webp`,
+            url: `${SOURCE}gal_20_gji7sy.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_18_jpg_e9c4bbb880.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_20_thumb_lqecmx.webp`,
           },
         },
       },
@@ -311,13 +295,13 @@ const getImageUrls = () => {
     {
       id: "21",
       attributes: {
-        url: `${SOURCE}gimg_19_jpg_886894266d.webp`,
+        url: `${SOURCE}gal_21_nivm4i.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_19_jpg_886894266d.webp`,
+            url: `${SOURCE}gal_21_nivm4i.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_19_jpg_886894266d.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_21_thumb_dtdrpo.webp`,
           },
         },
       },
@@ -325,16 +309,13 @@ const getImageUrls = () => {
     {
       id: "22",
       attributes: {
-        url: `${SOURCE}gimg_20_jpg_d74904b070.webp`,
+        url: `${SOURCE}gal_22_pxvcrc.webp`,
         formats: {
-          large: {
-            url: `${SOURCE}large_gimg_20_jpg_d74904b070.webp`,
-          },
           medium: {
-            url: `${SOURCE}medium_gimg_20_jpg_d74904b070.webp`,
+            url: `${SOURCE}gal_22_pxvcrc.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_20_jpg_d74904b070.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_22_thumb_ullafs.webp`,
           },
         },
       },
@@ -342,13 +323,13 @@ const getImageUrls = () => {
     {
       id: "23",
       attributes: {
-        url: `${SOURCE}gimg_21_jpg_5bf49e733c.webp`,
+        url: `${SOURCE}gal_23_c630tk.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_21_jpg_5bf49e733c.webp`,
+            url: `${SOURCE}gal_23_c630tk.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_21_jpg_5bf49e733c.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_23_thumb_gv5irn.webp`,
           },
         },
       },
@@ -356,13 +337,111 @@ const getImageUrls = () => {
     {
       id: "24",
       attributes: {
-        url: `${SOURCE}gimg_22_jpg_b7486aa8d4.webp`,
+        url: `${SOURCE}gal_24_uhmxt1.webp`,
         formats: {
           medium: {
-            url: `${SOURCE}medium_gimg_22_jpg_b7486aa8d4.webp`,
+            url: `${SOURCE}gal_24_uhmxt1.webp`,
           },
           thumbnail: {
-            url: `${SOURCE}thumbnail_gimg_22_jpg_b7486aa8d4.webp`,
+            url: `${THUMBNAIL_SOURCE}gal_24_thumb_mqsaz4.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "25",
+      attributes: {
+        url: `${SOURCE}gal_25_bwg30a.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_25_bwg30a.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_25_thumb_zrjxri.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "26",
+      attributes: {
+        url: `${SOURCE}gal_26_ufhjg2.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_26_ufhjg2.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_26_thumb_pmjo9a.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "27",
+      attributes: {
+        url: `${SOURCE}gal_27_avwbrc.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_27_avwbrc.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_27_thumb_zhtlmy.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "28",
+      attributes: {
+        url: `${SOURCE}gal_28_dj7sxy.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_28_dj7sxy.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_28_thumb_o0ptko.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "29",
+      attributes: {
+        url: `${SOURCE}gal_29_g4lehk.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_29_g4lehk.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_29_thumb_jj8jcv.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "30",
+      attributes: {
+        url: `${SOURCE}gal_30_cyp31d.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_30_cyp31d.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_30_thumb_v7nqzh.webp`,
+          },
+        },
+      },
+    },
+    {
+      id: "31",
+      attributes: {
+        url: `${SOURCE}gal_31_xmmuyy.webp`,
+        formats: {
+          medium: {
+            url: `${SOURCE}gal_31_xmmuyy.webp`,
+          },
+          thumbnail: {
+            url: `${THUMBNAIL_SOURCE}gal_31_thumb_cynsf1.webp`,
           },
         },
       },

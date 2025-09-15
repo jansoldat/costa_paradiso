@@ -13,7 +13,7 @@ import { Quote } from "~/components/Quote";
 import { useRootContext } from "~/context/root-context";
 
 const imageUrl =
-  "https://res.cloudinary.com/dsnfelexc/image/upload/v1682859100/profil_b81666bec1.webp";
+  "https://res.cloudinary.com/dsnfelexc/image/upload/v1757961985/gallery/profilovka.webp";
 
 export default function ContactForm({
   quote,

@@ -19,6 +19,7 @@ export const Section = ({
       <section
         className={cs("section", sectionKind, sectionName, className)}
         id={sectionName}
+       style={{zIndex: 1000}}
       >
         <span
           className="section__bg-img lazy-background"
@@ -65,7 +66,7 @@ Section.propTypes = {
   className: PropTypes.string,
   isLast: PropTypes.bool,
   translations: PropTypes.array,
-  bgImage: PropTypes.object,
+  bgImage: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

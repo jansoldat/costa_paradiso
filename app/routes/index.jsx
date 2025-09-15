@@ -30,22 +30,7 @@ const textsMap = {
 };
 
 export const loader = async ({ request }) => {
-  const url = new URL(request.url);
-  console.log("url: ", url);
-  const code = url.searchParams.get("lang") || "cs-CZ";
-  console.log("code: ", code);
-
-  // Get texts for the requested language, fallback to cs-CZ if not found
-  const texts = textsMap[code] || textsMap["cs-CZ"];
-
-  // const BASE_URL = `${process.env.API_URL}/api/sections/?${getQuery(code)}`;
-  // const CONTACT_URL = `${process.env.API_URL}/api/contact/?${getQuery(code)}`;
-
-  // const res = await fetch(`${BASE_URL}`);
-  // const contactRes = await fetch(`${CONTACT_URL}`);
-  // const data = await res.json();
-  // const contactData = await contactRes.json();
-
+  const texts = textsMap["cs-CZ"];
   return { data: [], contactData: [], texts };
 };
 
@@ -60,11 +45,12 @@ export default function Index() {
     <>
       <Hero />
 
-      <Section heading={about.title} kind="light">
+      <Section heading={about.title} kind="light" slug="about">
         <Quote color="blue" content={about.quote} />
         <HTMLTextBlock content={about.text} />
       </Section>
       <Section
+        slug="apartment"
         heading={apartment.title}
         kind="dark"
         bgImage={
@@ -74,13 +60,13 @@ export default function Index() {
         <ApartmentRow itemsCollection={apartment.items} />
       </Section>
 
-      <Section heading={gallery.title} kind="light">
+      <Section heading={gallery.title} kind="light" slug="gallery">
         <Gallery />
       </Section>
-      <Section heading={surroundings.title} kind="dark">
+      <Section heading={surroundings.title} kind="dark" slug="nearby">
         <BeachList beachItems={surroundings.items} />
       </Section>
-      <Section heading={price?.title} kind="light">
+      <Section heading={price?.title} kind="light" slug="payment">
         <Table
           heading={price.subheading}
           itemsCollection={price.itemsCollection}

@@ -14,7 +14,7 @@ export const ApartmentRow = ({ itemsCollection }) => {
     .filter((item) => !item?.icon)
     .map((item) => item.description)
     .join("</br>");
-  console.log("listItem: ", listItem);
+
 
   return (
     <div className="apartment-list">

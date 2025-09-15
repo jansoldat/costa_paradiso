@@ -99,9 +99,6 @@ const Hero = () => {
     };
   }, [handleScroll]);
 
-  const handleFlagClick = (code) => {
-    setSearchParams({ lang: code })
-  }
 
   return (<>
     <header className="showcase">
@@ -116,11 +113,11 @@ const Hero = () => {
       </div>
       <svg className="showcase__wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 195.18"><path className="showcase__curve" d="M1400,195.18V97.59c-256.86,63.57-283.79,112-713.14,34.46C273.76,57.47,0,183.94,0,183.94v11.24Z"></path>
       </svg>
-      <div className="lang-flag">
+      {/* <div className="lang-flag">
         {language !== "cs-CZ" && <FlagCz className="flag-icon" onClick={() => handleFlagClick("cs-CZ")} />}
         {language !== "en-US" && <FlagEn className="flag-icon" onClick={() => handleFlagClick("en-US")} />}
         {language !== "it-IT" && <FlagIt className="flag-icon" onClick={() => handleFlagClick("it-IT")} />}
-      </div>
+      </div> */}
     </header>
 
     <nav className={cs("navbar", { active: isActive })} ref={navbar}>

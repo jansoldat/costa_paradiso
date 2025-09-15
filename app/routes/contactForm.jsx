@@ -35,7 +35,6 @@ export default function ContactForm({
   const formRef = useRef();
   const messageRef = useRef();
 
-  const { language } = useRootContext();
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const submit = useSubmit();
@@ -89,7 +88,7 @@ export default function ContactForm({
               ref={formRef}
               method="post"
               className="form column"
-              action={`/?lang=${language}`}
+              action='/'
               onSubmit={handleSubmit}
             >
               <input

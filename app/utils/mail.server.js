@@ -1,34 +1,32 @@
-import nodemailer from "nodemailer";
-import Transport from "nodemailer-sendinblue-transport";
+import { Resend } from "resend";
 
-const transporter = nodemailer.createTransport(
-  new Transport({ apiKey: process.env.SENDINBLUE_API_KEY })
-);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendMail({ name, subject, email, msg }) {
-  return new Promise((resolve) => {
-    transporter.sendMail(
-      {
-        subject: "Nová zpráva z kontaktního formuláře.",
-        from: `${name}<${email}>`,
-        to: process.env.CONTACT_EMAIL,
-        html: `
+  try {
+    const { data, error } = await resend.emails.send({
+      from: "Sardinie apartmán kontaktní formulář <onboarding@resend.dev>",
+      to: [process.env.CONTACT_EMAIL],
+      subject: "Nová zpráva z kontaktního formuláře.",
+      html: `
         <div>
           <h1>Předmět: ${subject}</h1>
           <h2>Odesílatel: ${name}, ${email}</h2>
           <p>${msg}</p>
         </div>
-    `,
-      },
-      function (error, info) {
-        if (error) {
-          // console.log("error is " + error);
-          resolve("Error");
-        } else {
-          // console.log('Email sent: ' + info.response);
-          resolve("Success");
-        }
-      }
-    );
-  });
+      `,
+      reply_to: email, // This allows replies to go to the original sender
+    });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return "Error";
+    }
+
+    console.log("Email sent successfully:", data);
+    return "Success";
+  } catch (error) {
+    console.error("Resend catch error:", error);
+    return "Error";
+  }
 }

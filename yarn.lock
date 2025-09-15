@@ -8385,11 +8385,6 @@ node-releases@^2.0.6:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.8.tgz#0f349cdc8fcfa39a92ac0be9bc48b7706292b9ae"
   integrity sha512-dFSmB8fFHEH/s81Xi+Y/15DQY6VHW81nXRj86EMSL3lmuTmK1e+aT4wrFCkTbm+gSwkw4KpX+rT/pMM2c1mF+A==
 
-nodemailer-sendinblue-transport@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/nodemailer-sendinblue-transport/-/nodemailer-sendinblue-transport-2.0.1.tgz#10cf8aa9e3954e435f565ad736fdce59d29f8290"
-  integrity sha512-AtkLImrKkiks8ukP5JKd98U9mkumlg054deLrJ8O2KMVr9tcxcAybrZjNHhc4PfPl36SQkLtxXKOti0jJCHPgg==
-
 nodemailer@^6.9.1:
   version "6.9.1"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.9.1.tgz#8249d928a43ed85fec17b13d2870c8f758a126ed"
@@ -9396,6 +9391,11 @@ requireindex@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/requireindex/-/requireindex-1.2.0.tgz#3463cdb22ee151902635aa6c9535d4de9c2ef1ef"
   integrity sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==
+
+resend@^6.0.3:
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/resend/-/resend-6.0.3.tgz#1ad21e6b957eff9664bb849cd201e7becb4eda4a"
+  integrity sha512-Yb7o2n52v91LjkUjq5vIZQbJrGiaPoMo2VPAyS0QTKA73tmvHMUQ7P1M56J1ux/Cw9Lf68PeaKidTl6GuS8DTA==
 
 resolve-alpn@^1.0.0:
   version "1.2.1"

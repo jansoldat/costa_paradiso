@@ -5,7 +5,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendMail({ name, subject, email, msg }) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "Sardinie apartmán kontaktní formulář <onboarding@resend.dev>",
+      from: "Sardinie apartmán kontaktní formulář <support@sardinieapartman.cz>",
       to: [process.env.CONTACT_EMAIL],
       subject: "Nová zpráva z kontaktního formuláře.",
       html: `

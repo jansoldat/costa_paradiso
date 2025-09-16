@@ -6,6 +6,7 @@ export async function sendMail({ name, subject, email, msg }) {
   try {
     const { data, error } = await resend.emails.send({
       from: "Sardinie apartmán kontaktní formulář <support@sardinieapartman.cz>",
+      replyTo: email,
       to: [process.env.CONTACT_EMAIL],
       subject: "Nová zpráva z kontaktního formuláře.",
       html: `
